@@ -55,3 +55,9 @@ function ataqueHumano() {
     checarFimDeJogo();
   }
 }
+
+function atualizarInterface() {
+  document.getElementById("vida-gorila").textContent = vidaGorila;
+  document.getElementById("humanos-restantes").textContent = humanos.filter(h => h.alive).length;
+  document.getElementById("health-fill").style.width = `${vidaGorila}%`;
+}
