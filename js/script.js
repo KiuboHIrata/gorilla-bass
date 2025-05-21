@@ -83,3 +83,8 @@ function renderizarHumanos() {
     container.appendChild(div);
   });
 }
+
+function salvarEstado() {
+  localStorage.setItem("vidaGorila", vidaGorila);
+  localStorage.setItem("humanos", JSON.stringify(humanos));
+}
