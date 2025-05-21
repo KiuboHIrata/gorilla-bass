@@ -97,3 +97,14 @@ function carregarEstado() {
     humanos = JSON.parse(h);
   }
 }
+
+function checarFimDeJogo() {
+  const vivos = humanos.filter(h => h.alive).length;
+  if (vidaGorila <= 0 || vivos === 0) {
+    clearInterval(ataqueInterval);
+    document.querySelectorAll('.actions button').forEach(btn => btn.disabled = true);
+    document.getElementById("resultado-final").textContent =
+      vidaGorila <= 0 ? "💀 O gorila foi derrotado!" : "🎉 Todos os humanos foram derrotados!";
+    document.getElementById("end-screen").classList.remove("hidden");
+  }
+}
