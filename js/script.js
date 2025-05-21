@@ -88,3 +88,12 @@ function salvarEstado() {
   localStorage.setItem("vidaGorila", vidaGorila);
   localStorage.setItem("humanos", JSON.stringify(humanos));
 }
+
+function carregarEstado() {
+  const vg = localStorage.getItem("vidaGorila");
+  const h = localStorage.getItem("humanos");
+  if (vg && h) {
+    vidaGorila = parseInt(vg);
+    humanos = JSON.parse(h);
+  }
+}
