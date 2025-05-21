@@ -108,3 +108,12 @@ function checarFimDeJogo() {
     document.getElementById("end-screen").classList.remove("hidden");
   }
 }
+
+function reiniciarJogo() {
+  vidaGorila = 100;
+  humanos = Array.from({ length: 100 }, (_, i) => ({ id: i, alive: true }));
+  salvarEstado();
+  location.reload();
+}
+
+init();
