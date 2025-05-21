@@ -42,3 +42,16 @@ function curar() {
     vidaGorila = Math.min(100, vidaGorila + 10);
   }, '❤️ O gorila se curou.');
 }
+
+function ataqueHumano() {
+  const vivos = humanos.filter(h => h.alive).length;
+  if (vivos > 0) {
+    const dano = Math.floor(Math.random() * 5) + 1;
+    vidaGorila -= dano;
+    vidaGorila = Math.max(0, vidaGorila);
+    log(`🗡️ Os humanos atacaram e causaram ${dano} de dano ao gorila.`);
+    atualizarInterface();
+    salvarEstado();
+    checarFimDeJogo();
+  }
+}
