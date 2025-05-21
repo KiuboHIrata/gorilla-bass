@@ -31,3 +31,14 @@ function atacar() {
     });
   }, '🦍 O gorila atacou e derrotou 5 humanos!');
 }
+function defender() {
+  executarAcao(() => {
+    vidaGorila = Math.min(100, vidaGorila + 5);
+  }, '🛡️ O gorila se defendeu e recuperou energia.');
+}
+
+function curar() {
+  executarAcao(() => {
+    vidaGorila = Math.min(100, vidaGorila + 10);
+  }, '❤️ O gorila se curou.');
+}
