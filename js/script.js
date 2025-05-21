@@ -62,6 +62,17 @@ function atualizarInterface() {
   document.getElementById("health-fill").style.width = `${vidaGorila}%`;
 }
 
+function log(msg) {
+  const logDiv = document.getElementById("log");
+  const p = document.createElement("p");
+  p.textContent = msg;
+  logDiv.appendChild(p);
+  if (logDiv.children.length > 50) {
+    logDiv.removeChild(logDiv.firstChild);
+  }
+  logDiv.scrollTop = logDiv.scrollHeight;
+}
+
 function renderizarHumanos() {
   const container = document.getElementById("human-list");
   container.innerHTML = "";
