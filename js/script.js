@@ -14,3 +14,20 @@ function init() {
 
   ataqueInterval = setInterval(ataqueHumano, 5000);
 }
+function executarAcao(callback, mensagem) {
+  callback();
+  log(mensagem);
+  atualizarInterface();
+  salvarEstado();
+  checarFimDeJogo();
+}
+
+function atacar() {
+  executarAcao(() => {
+    const alvos = humanos.filter(h => h.alive).slice(0, 5);
+    alvos.forEach(h => {
+      h.alive = false;
+      document.getElementById(`human-${h.id}`).classList.add("dead");
+    });
+  }, '🦍 O gorila atacou e derrotou 5 humanos!');
+}
