@@ -61,3 +61,14 @@ function atualizarInterface() {
   document.getElementById("humanos-restantes").textContent = humanos.filter(h => h.alive).length;
   document.getElementById("health-fill").style.width = `${vidaGorila}%`;
 }
+
+function renderizarHumanos() {
+  const container = document.getElementById("human-list");
+  container.innerHTML = "";
+  humanos.forEach(h => {
+    const div = document.createElement("div");
+    div.className = "human" + (h.alive ? "" : " dead");
+    div.id = `human-${h.id}`;
+    container.appendChild(div);
+  });
+}
